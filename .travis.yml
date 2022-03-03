@@ -1,0 +1,18 @@
+language: node_js
+
+notifications:
+  email: false
+  
+node_js:
+- "16.13.2"
+
+install:
+- npm install newman
+
+before_script:
+- node --version
+- npm --version
+- node_modules/.bin/newman --version
+
+script:
+- node_modules/.bin/newman run postman/collections/NOVASecurityTests_e438b0c3-97c2-46fa-b650-f154724258c8.json -e postman/environments/nova_security_tests_env.json
